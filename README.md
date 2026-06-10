@@ -23,7 +23,7 @@ More repos coming as I build in public.
 I write about AI-native GTM strategy, the gap between individual AI fluency and team-level operationalization, and what it actually takes to commercialize AI products.
 
 - **Substack:** [https://apoorvasplaybook.substack.com/]
-- **LinkedIn:** [linkedin.com/in/apoorvasingh1](https://www.linkedin.com/in/apoorvasingh1/]
+- **LinkedIn:** [https://linkedin.com/in/apoorvasingh1]
 
 ---
 
