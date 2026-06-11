@@ -36,5 +36,9 @@ I write about AI-native GTM strategy, the gap between individual AI fluency and 
 - **University of Michigan, Ross** — MBA, Strategy & Marketing.
 
 ---
+## How to Use
+
+See [GETTING_STARTED.md](./GETTING_STARTED.md) for a complete step-by-step guide based on your context.
+
 
 *Building in public. Feedback and forks welcome.*
