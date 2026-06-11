@@ -3,7 +3,7 @@ This guide is for anyone who wants to use this system — not just read about it
 It tells you exactly where to start based on your situation, what to build first, and what "ready to use" looks like at each stage.
 
 
-Before you start: one decision
+*Before you start: one decision*
 
 Are you setting this up for yourself, or for a team?
 
