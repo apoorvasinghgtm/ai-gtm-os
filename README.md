@@ -78,7 +78,7 @@ ai-gtm-os/
     │   ├── company-context.md
     │   ├── icp-and-personas.md
     │   └── presale-brief-example.md
-    └── talentflow-ai/               ← HRTech vertical (AI sourcing and screening)
+    └── talentflow-ai/               ← HRTech vertical (AI recruiting)
         ├── company-context.md
         ├── icp-and-personas.md
         └── presale-brief-example.md
