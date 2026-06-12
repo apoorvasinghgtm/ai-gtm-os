@@ -1,223 +1,169 @@
-# Pre-Sale Intelligence Workflow
+# Pre-Sale Account Intelligence Workflow
 
-**Status: Stable**
+**Purpose:** Generate a structured pre-sale intelligence brief for a specific account before a discovery or follow-up call. Compresses 3–4 hours of manual research into a 15-minute rep review.
 
----
+**Context files required:** `01-company-context.md`, `02-icp-definition.md`, `03-persona-cards.md`, `04-competitive-positioning.md`, `05-proof-library.md`
 
-## The problem this solves
+**Time to run:** 15–20 minutes (AI execution) + 15 minutes (rep review)
 
-A prepared rep is not a rep who spent four hours on Google before a meeting. A prepared rep is a rep who walks in knowing the three things most likely to matter to this specific buyer, at this specific company, at this specific moment — and has thought through how to use that knowledge.
-
-Before AI, getting to that level of preparation took a skilled rep 3–4 hours per account. Most reps didn't do it consistently. The ones who did were manually triangulating across LinkedIn, news searches, the CRM, call recordings, and their own memory.
-
-This workflow compresses that to 15 minutes of human review on top of an AI-generated brief — without sacrificing the depth that makes preparation actually useful.
+**When to use:** Before any first discovery call, re-engagement call, or significant follow-up where deal context has changed.
 
 ---
 
-## What this workflow produces
+## Overview
 
-A **Pre-Sale Intelligence Brief**: a structured document a rep reads in 10–15 minutes before a meeting that gives them:
+This is a three-step prompt chain. Run each step in sequence in your Claude Project. Each step builds on the previous one — do not skip steps or run them out of order.
 
-- Account context and current situation
-- Stakeholder map with role-specific priorities
-- Relevant trigger events and what they signal
-- Three most likely pain points to probe in discovery
-- Competitive context if applicable
-- Suggested discovery questions calibrated to the buyer
-- ROI anchor — the proof point most likely to land with this persona
+| Step | What It Produces | Human Review Before Next Step |
+|------|-----------------|-------------------------------|
+| Step 1 | Account situation analysis | Verify trigger events are current |
+| Step 2 | Pain point hypotheses + discovery questions | Confirm hypotheses match what you know |
+| Step 3 | Competitive context + ROI anchor + call opener | Confirm proof point is approved for use |
 
 ---
 
-## Inputs required
+## Before You Run: What You Need
 
-| Input | Source | Required? |
-|---|---|---|
-| Company name | Rep / CRM | Required |
-| Primary contact name and title | Rep / CRM | Required |
-| Meeting type (first call, demo, EBR) | Rep | Required |
-| Deal stage and history | CRM | Required |
-| Recent call notes or Gong summary | Gong / CRM | Strongly recommended |
-| Intent data signals | 6sense / Bombora | If available |
-| Any known context from the rep | Rep | High value |
+Gather the following before running Step 1. The more complete this is, the more useful the output.
 
----
+- **Account name:** [Company name]
+- **Primary contact:** [Name, title, how long they've been in role]
+- **Meeting type:** [First discovery / Re-engagement / Follow-up / Eval stage]
+- **What you know so far:** [Any notes from previous calls, emails, or CRM history — paste here]
+- **How they found us / inbound signal:** [e.g., Downloaded a piece of content, inbound form, referral, cold outreach response]
+- **Deal stage:** [Where this sits in your pipeline, if applicable]
 
-## Context to load before running
-
-Load the following files from your context layer before running this prompt:
-
-- `company.md` — your product, differentiators, what you are not
-- `icp.md` — ICP definition and trigger signals
-- `personas.md` — persona cards for the primary contact's role
-- `competitive.md` — if a competitor has been mentioned in prior touches
-- `proof.md` — proof points organized by persona and outcome
+Optional but valuable:
+- Any intent data signals you have on this account
+- Recent news about the company you've noticed
 
 ---
 
-## The prompt chain
+## Step 1: Account Situation Analysis
 
-This workflow runs in three sequential steps. Do not collapse them into one prompt — the quality degrades significantly when you do. [certain, based on testing]
+**Copy and paste this prompt into your Claude Project. Fill in the bracketed fields.**
 
 ---
-
-### Step 1 — Account Situation Analysis
-
-**Purpose:** Establish what's actually happening at this company right now — not generic background, but signals relevant to a buying decision.
 
 ```
-You are preparing a pre-sale intelligence brief for a B2B sales rep.
+Using the context files loaded in this project, generate an account situation analysis for the following prospect.
 
-COMPANY CONTEXT:
-[paste company.md]
+Account: [Company name]
+Primary contact: [Name], [Title] — [X months/years] in this role
+Meeting type: [First discovery / Re-engagement / Follow-up]
+What I know so far: [Paste your notes, or write "No prior contact"]
+Inbound signal: [How they engaged, or write "Outbound — no inbound signal"]
 
-ICP DEFINITION:
-[paste icp.md]
+Produce the following:
 
-ACCOUNT TO RESEARCH:
-Company: [company name]
-Primary contact: [name], [title]
-Meeting type: [first call / discovery / demo / EBR]
-Deal stage: [stage]
-Known context from rep: [any notes]
+1. COMPANY SNAPSHOT (3–5 bullets)
+Key facts about this company's current state — size, stage, recent growth or contraction signals, business model, and market position. Be specific; avoid generic descriptions.
 
-Using publicly available information and the inputs above, produce an Account Situation Analysis covering:
+2. TRIGGER EVENTS (list all you can identify, with rough timing)
+Recent changes that create urgency or relevance for our product: leadership changes, funding events, headcount growth or reduction, public statements about the problem we solve, technology changes, competitive moves.
 
-1. COMPANY SNAPSHOT (3–4 sentences)
-   Current business situation, recent news, growth trajectory, anything that signals urgency or timing.
+3. STAKEHOLDER CONTEXT (for the primary contact listed above)
+Based on their title and time in role, what are the most likely goals, pressures, and success metrics for this person right now? Cross-reference with our persona cards. What's their likely mandate in this role?
 
-2. TRIGGER EVENTS (list up to 5)
-   Recent events that are relevant to a buying decision — leadership changes, funding, hiring patterns, 
-   product launches, earnings commentary, competitive moves. For each: state the event, the date if known, 
-   and what it signals about buying readiness or priority.
+4. TIMING RISKS AND INTERNAL FRICTION (2–3 bullets)
+What factors might slow this deal down or make the timing bad? Examples: recent layoffs, exec transition, Q4 budget freeze, competitor already entrenched.
 
-3. STAKEHOLDER CONTEXT
-   Based on the contact's title and tenure, what are the most likely priorities, pressures, and success 
-   metrics for this person right now? What does winning look like for them in the next 90 days?
-
-4. RISK FLAGS
-   Anything that suggests poor timing, internal friction, or a reason this deal might stall.
-
-Format as structured sections. Be specific — no generic statements that could apply to any company.
+Keep this section to one page. Flag any area where you're making an inference rather than drawing from stated facts.
 ```
 
 ---
 
-### Step 2 — Pain Point Hypotheses and Discovery Prep
+**Before moving to Step 2, review:**
+- [ ] Trigger events reflect current reality (not outdated news)
+- [ ] Stakeholder context is consistent with what you know about this contact
+- [ ] No factual claims you can't verify or ask about in the call
 
-**Purpose:** Translate the account situation into a specific discovery strategy — what to probe, what to listen for, what not to assume.
+---
+
+## Step 2: Pain Point Hypotheses and Discovery Prep
+
+**Copy and paste this prompt. Run it in the same conversation as Step 1 — Claude has the account context from Step 1.**
+
+---
 
 ```
-You are preparing the discovery strategy section of a pre-sale intelligence brief.
+Based on the account situation analysis above and the persona cards and ICP definition in your context files, generate the following:
 
-ACCOUNT SITUATION ANALYSIS:
-[paste output from Step 1]
-
-PERSONA CONTEXT:
-[paste relevant persona card from personas.md]
-
-PRODUCT CONTEXT:
-[paste company.md]
-
-Based on the account situation and persona context, produce:
-
-1. THREE PAIN POINT HYPOTHESES
-   The three pain points most likely to be true for this buyer at this company right now, 
-   ranked by probability. For each:
-   - State the hypothesis in the buyer's language (not our product language)
-   - Explain why the account signals support this hypothesis
-   - Note what would confirm or disconfirm it in discovery
+1. THREE PAIN POINT HYPOTHESES (ranked by likelihood)
+For each hypothesis:
+- State the pain in buyer language (how they would describe it, not how we describe our solution)
+- Explain the evidence from Step 1 that supports this hypothesis
+- Note what would confirm or disconfirm it in the call
 
 2. FIVE DISCOVERY QUESTIONS
-   Questions designed to surface the true pain points — not leading questions that telegraph 
-   our product, but genuine diagnostic questions that help the rep understand whether and 
-   where we fit. Each question should:
-   - Be open-ended
-   - Map to one of the pain point hypotheses
-   - Feel natural in a first conversation, not like a qualification checklist
+Questions designed to confirm or disprove the hypotheses above. Each question should:
+- Be open-ended (not yes/no)
+- Invite the prospect to tell you something you don't already know
+- Not telegraph our product's solution
+- Be sequenced — questions 1–2 open the conversation, 3–4 go deeper, question 5 is for executive alignment or budget reality
 
-3. LISTEN FOR
-   Three things the rep should pay close attention to in this conversation — signals that 
-   indicate urgency, budget authority, or competitive consideration.
+3. LISTENING PRIORITIES
+Three things to specifically listen for during the call that would meaningfully change your assessment of this opportunity.
 
-4. AVOID ASSUMING
-   Two assumptions that would be easy to make based on the account profile but could 
-   be wrong — and why walking in with those assumptions would hurt the conversation.
+4. FALSE ASSUMPTIONS TO AVOID
+One or two assumptions that would be easy to make about this account or contact based on the data — but that could be wrong and would undermine the call if you acted on them unchecked.
 ```
 
 ---
 
-### Step 3 — Competitive Context and ROI Anchor
+**Before moving to Step 3, review:**
+- [ ] Pain hypotheses reflect what you already know about this contact — nothing that would obviously miss
+- [ ] Discovery questions feel natural, not scripted
+- [ ] No question reveals proprietary information about our sales process
 
-**Purpose:** Equip the rep with the competitive framing and proof point most likely to matter in this specific conversation.
+---
+
+## Step 3: Competitive Context and ROI Anchor
+
+**Copy and paste this prompt. Run it in the same conversation.**
+
+---
 
 ```
-You are completing a pre-sale intelligence brief with competitive context and an ROI anchor.
+Based on the account situation and pain hypotheses above, generate the following:
 
-ACCOUNT SITUATION:
-[paste Step 1 output]
-
-PERSONA CONTEXT:
-[paste relevant persona card]
-
-COMPETITIVE CONTEXT:
-[paste competitive.md — or note "no competitor mentioned yet"]
-
-PROOF LIBRARY:
-[paste proof.md]
-
-Produce:
-
-1. COMPETITIVE POSTURE (if a competitor has been mentioned or is likely given the account profile)
-   - Most likely competitor in this deal based on account signals
-   - Where we win vs. them in this specific context
-   - One thing NOT to say about the competitor (keeps us credible)
+1. COMPETITIVE CONTEXT
+What alternatives is this prospect most likely evaluating or currently using?
+- Most likely competitor or status quo (based on their profile)
+- How to position against it using our approved competitive positioning
+- One thing NOT to say that could backfire with this specific account
 
 2. ROI ANCHOR
-   The single proof point from our proof library most likely to resonate with this 
-   persona at this company — and why. Include:
-   - The proof point itself
-   - The reason it lands with this buyer specifically
-   - How to introduce it naturally (not as a data dump)
+Select the single most resonant proof point from our proof library for this prospect and contact.
+- State the proof point
+- Explain why it's the right one for this specific persona and situation
+- Suggest the moment in the conversation to introduce it (never lead with it)
 
-3. SUGGESTED OPENING
-   A one-paragraph suggested opening for the call that acknowledges what we know about 
-   their situation, establishes credibility without pitching, and opens a genuine 
-   diagnostic conversation.
-   Note: This is a starting point for the rep to personalize — not a script.
+3. SUGGESTED CALL OPENER (2–3 sentences)
+A credibility-establishing opening that:
+- Acknowledges something specific about their situation (from Step 1)
+- Does not pitch the product
+- Opens a diagnostic conversation
+- Matches our voice and tone guidelines
+
+Do not use the opener if the trigger event or situation detail hasn't been verified first.
 ```
 
 ---
 
-## Review gate
+**Before using this brief in a real call, complete this quality gate:**
 
-Before using the brief, the rep verifies:
-
-- [ ] Trigger events are real and recent — not hallucinated or outdated
-- [ ] Pain point hypotheses reflect what we actually know, not generic assumptions
-- [ ] Competitive claims match current positioning in `competitive.md`
-- [ ] ROI anchor is approved for external use (check `proof.md` source notes)
-- [ ] Suggested opening sounds like the rep, not a template
-
-**Time required for review: 10–15 minutes.** If it's taking longer, the brief quality is insufficient — flag the output and rerun Step 1 with more specific account context.
+- [ ] All trigger events in the brief are current (within last 60–90 days where timing matters)
+- [ ] Pain hypotheses are grounded in what you know, not pure inference
+- [ ] Competitive claims match approved positioning in `04-competitive-positioning.md`
+- [ ] Proof point is approved for external use in `05-proof-library.md`
+- [ ] Call opener doesn't sound scripted when you say it out loud
+- [ ] You could defend every factual claim in this brief if asked
 
 ---
 
-## What the rep does with it
+## Worked Examples
 
-The brief is preparation material, not a script. The rep reads it, internalizes what matters, and shows up to the conversation as a person — not someone reading from a document.
+See `worked-examples/meridian-gtm/presale-brief-example.md` for a complete output example using the Meridian GTM fictional company in the RevTech vertical.
 
-The discovery questions are hypotheses, not a checklist. The rep uses them as mental anchors, not a linear sequence. If the conversation goes somewhere unexpected and more valuable, they follow it.
-
-The suggested opening is a starting point. The rep rewrites it in their own voice before the call.
-
-This is the human's lane: taking prepared intelligence and applying it with judgment, presence, and adaptability. The brief gets them to the starting line faster. What happens after that is the rep's craft.
-
----
-
-## See it in practice
-
-A fully completed brief — built for a specific fictional account scenario — is in:
-
-`/worked-examples/meridian-gtm/presale-brief-example.md`
-
-Read the example before building your first real brief. It shows what "complete" looks like and gives you a quality bar to work against.
+See `worked-examples/talentflow-ai/presale-brief-example.md` for a complete output example in the HRTech vertical.

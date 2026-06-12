@@ -1,44 +1,144 @@
-# ai-gtm-os
+# AI GTM OS
 
-# Apoorva Singh
+An open-source operating system for AI-native go-to-market and product marketing teams.
 
-**AI GTM & Product Marketing Leader**
-
-I build AI-native go-to-market systems — the kind that work at the individual level and scale across a team without falling apart.
-
-14 years launching and commercializing AI products at Indeed, Google, and Expedia. $75M+ ARR from AI product launches. 28 global markets. Thousands of sellers enabled. Fractional GTM advisor to B2B SaaS and AI-native startups.
+Built by [Apoorva Singh](https://www.linkedin.com/in/apoorvasinghgtm/) — AI GTM and product marketing leader with 14+ years launching AI products at Indeed, Google, and Expedia. $75M+ ARR generated from AI product launches across 28 markets.
 
 ---
 
-## What you'll find here
+## What This Is
 
-**[ai-gtm-os](https://github.com/apoorvasinghgtm/ai-gtm-os)** — An open-source operating system for AI-native GTM and PMM teams. Pre-sale intelligence workflows, sales motion systems, enablement architecture, and a framework for operationalizing AI across a team — not just for the one person who built it. Includes fully worked examples for two verticals: RevTech and HRTech.
+Most teams use AI for one-off tasks. This system makes AI a permanent, reliable part of how your GTM team operates — with consistent outputs, shared context, and clear human review gates.
 
-More repos coming as I build in public.
-
----
-
-## Writing
-
-I write about AI-native GTM strategy, the gap between individual AI fluency and team-level operationalization, and what it actually takes to commercialize AI products.
-
-- **Substack:** [https://apoorvasplaybook.substack.com/]
-- **LinkedIn:** [https://linkedin.com/in/apoorvasingh1]
+The AI GTM OS gives you:
+- **A context layer** — the foundation that makes every AI output specific to your company, not generic
+- **Pre-built workflows** — copy-paste prompt chains for the work GTM teams do every week
+- **Governance frameworks** — version control, ownership, and feedback loops to keep the system reliable at team scale
+- **Worked examples** — complete outputs across two verticals (RevTech and HRTech) to calibrate against
 
 ---
 
-## Background
+## How to Get Started in Under an Hour
 
-- **Indeed** — GTM for Agentic AI Sourcing & Screening platform. Defined "human-in-the-loop" AI governance narrative. $500M portfolio. 5,000+ sellers enabled globally.
-- **Google** — PMM for Project Sunroof, a 0→1 AI-powered energy product.
-- **Expedia** — PM for Payments & Platform. $15M GBR impact through data-driven redesign.
-- **EY** — Strategy consulting for Fortune 500 clients.
-- **University of Michigan, Ross** — MBA, Strategy & Marketing.
+**The fastest path to running your first workflow:**
+
+1. Fork or download this repository
+2. Open `_templates/context/` and fill in `01-company-context.md` (45–60 min)
+3. Read `claude-projects-setup.md` — create a Claude Project and upload your context file
+4. Run Step 1 of `02-presale-intelligence/account-research-workflow.md` on a real account
+
+You'll have your first AI-generated pre-sale brief in under 2 hours from a standing start.
+
+For the full system: see `GETTING_STARTED.md` for the complete implementation path.
 
 ---
-## How to Use
 
-See [GETTING_STARTED.md](./GETTING_STARTED.md) for a complete step-by-step guide based on your context.
+## Repository Structure
 
+```
+ai-gtm-os/
+│
+├── _templates/                        ← START HERE
+│   ├── README.md                      ← How to use the templates
+│   └── context/
+│       ├── 01-company-context.md      ← Your product, model, differentiators, proof points
+│       ├── 02-icp-definition.md       ← Ideal customer profile, fit signals, negative ICP
+│       ├── 03-persona-cards.md        ← Buyer personas: goals, pains, objections, language
+│       ├── 04-competitive-positioning.md  ← Competitors, where you win/lose, displacement strategy
+│       ├── 05-proof-library.md        ← Approved metrics and quotes indexed by outcome and persona
+│       └── 06-voice-and-tone.md       ← Writing rules, forbidden language, before/after examples
+│
+├── claude-projects-setup.md           ← Step-by-step: upload context, configure Claude Projects, test
+│
+├── 01-foundation/
+│   ├── context-layer-setup.md         ← Why the context layer matters and how to build it right
+│   ├── human-vs-ai-responsibility.md  ← What AI owns vs. what humans own in GTM workflows
+│   └── prompt-governance.md          ← Versioning, ownership, and feedback loops for teams
+│
+├── 02-presale-intelligence/
+│   └── account-research-workflow.md  ← 3-step prompt chain: situation → hypotheses → call prep
+│
+├── 03-sales-motion/
+│   ├── discovery-call-prep.md        ← Call plan, question arc, multi-stakeholder navigation
+│   └── outbound-personalization.md   ← Single email, 3-touch sequence, LinkedIn, response handling
+│
+├── 04-enablement-architecture/
+│   ├── messaging-brief.md            ← Positioning, message hierarchy, copy building blocks
+│   └── competitive-battlecard.md     ← Rep-ready battlecard for live competitive deals
+│
+├── 05-pipeline-and-expansion/
+│   ├── deal-inspection.md            ← Pipeline review, forecast qualification, risk flags
+│   └── expansion-intelligence.md    ← QBR prep, expansion brief, at-risk account recovery
+│
+├── 06-operationalizing-for-teams/
+│   └── from-individual-to-team.md    ← How to scale from one person to a full GTM org
+│
+└── worked-examples/
+    ├── meridian-gtm/                 ← RevTech vertical (sales intelligence platform)
+    │   ├── company-context.md
+    │   ├── icp-and-personas.md
+    │   └── presale-brief-example.md
+    └── talentflow-ai/               ← HRTech vertical (AI sourcing and screening)
+        ├── company-context.md
+        ├── icp-and-personas.md
+        └── presale-brief-example.md
+```
 
-*Building in public. Feedback and forks welcome.*
+---
+
+## Workflows at a Glance
+
+| Workflow | What It Produces | Who Uses It | Time |
+|----------|-----------------|-------------|------|
+| Pre-sale intelligence | Account brief before a discovery call | AE, SDR | 15–20 min AI + 15 min review |
+| Discovery call prep | Question arc, hypothesis, call structure | AE | 10 min AI + 10 min review |
+| Outbound personalization | Email/LinkedIn sequence for specific accounts | SDR, AE | 10 min AI + 5 min edit |
+| Messaging brief | Positioning, hierarchy, copy blocks for launches | PMM, GTM lead | 20–30 min AI + 30–60 min PMM review |
+| Competitive battlecard | Rep-ready card for live competitive deals | PMM, AE | 10–15 min AI + 20–30 min PMM review |
+| Deal inspection | Pipeline health, risk flags, forecast guidance | AE, Sales manager | 10 min AI + 15 min review |
+| Expansion intelligence | QBR prep, expansion narrative, at-risk recovery | CSM, AE | 15 min AI + 15 min review |
+
+---
+
+## Who This Is For
+
+**Individual practitioners** — GTM strategists, PMMs, AEs, CSMs, and SDRs who want AI to do the research-intensive, repeatable work so they can focus on judgment, relationships, and strategy.
+
+**Cross-functional GTM teams** — Sales, marketing, CS, and RevOps teams who want consistent AI outputs across functions, not different prompts on different laptops.
+
+**GTM leaders** — VPs and directors building scalable GTM infrastructure, not just individual productivity hacks.
+
+---
+
+## The Design Principles
+
+**Context before workflows.** Generic AI produces generic outputs. Everything in this system is designed to run against your specific context layer — your product, your ICP, your personas, your proof points, your voice. Build the context layer first.
+
+**Humans own judgment.** AI owns research, synthesis, and first drafts. Humans own live conversations, strategic decisions, and anything that requires relationship or creativity. Every workflow has explicit human review gates.
+
+**Governance makes it durable.** A system that works for one person once isn't a system. The governance layer — versioning, ownership, feedback loops — is what makes this reliable at team scale over time.
+
+---
+
+## Worked Examples
+
+See `/worked-examples/` for complete implementations across two verticals:
+
+- **Meridian GTM** — RevTech: AI-powered sales intelligence platform. Enterprise B2B SaaS, $80K–$250K ACV.
+- **TalentFlow AI** — HRTech: AI-powered sourcing and screening. PLG + sales-led hybrid, $2K–$200K ARR.
+
+Use these to calibrate what "good" looks like before you run workflows on your own accounts.
+
+---
+
+## Building in Public
+
+This system is actively being developed. Feedback, forks, and contributions are welcome.
+
+- **Questions or feedback:** Open an issue
+- **Following the build:** [Substack](https://substack.com) | [LinkedIn](https://linkedin.com/in/apoorvasinghgtm)
+- **Fractional GTM advisory:** [Contact Apoorva](https://linkedin.com/in/apoorvasinghgtm)
+
+---
+
+*MIT License — free to use, fork, and adapt.*
