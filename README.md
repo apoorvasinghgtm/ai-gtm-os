@@ -2,7 +2,7 @@
 
 An open-source operating system for AI-native go-to-market and product marketing teams.
 
-Built by [Apoorva Singh](https://www.linkedin.com/in/apoorvasinghgtm/) — AI GTM and product marketing leader with 14+ years launching AI products at Indeed, Google, and Expedia. $75M+ ARR generated from AI product launches across 28 markets.
+Built by [Apoorva Singh](https://www.linkedin.com/in/apoorvasingh1/) — AI GTM and product marketing leader with 14+ years launching AI products at Indeed, Google, and Expedia. $75M+ ARR generated from AI product launches across 28 markets.
 
 ---
 
@@ -136,8 +136,8 @@ Use these to calibrate what "good" looks like before you run workflows on your o
 This system is actively being developed. Feedback, forks, and contributions are welcome.
 
 - **Questions or feedback:** Open an issue
-- **Following the build:** [Substack](https://substack.com) | [LinkedIn](https://linkedin.com/in/apoorvasinghgtm)
-- **Fractional GTM advisory:** [Contact Apoorva](https://linkedin.com/in/apoorvasinghgtm)
+- **Following the build:** [Substack](https://apoorvasplaybook.substack.com) | [LinkedIn](https://linkedin.com/in/apoorvasingh1)
+- **Fractional GTM advisory:** [Contact Apoorva](https://linkedin.com/in/apoorvasingh1)
 
 ---
 
