@@ -125,7 +125,7 @@ ai-gtm-os/
 See `/worked-examples/` for complete implementations across two verticals:
 
 - **Meridian GTM** — RevTech: AI-powered sales intelligence platform. Enterprise B2B SaaS, $80K–$250K ACV.
-- **TalentFlow AI** — HRTech: AI-powered sourcing and screening. PLG + sales-led hybrid, $2K–$200K ARR.
+- **TalentFlow AI** — HRTech: AI-powered recruiting platform. PLG + sales-led hybrid, $2K–$200K ARR.
 
 Use these to calibrate what "good" looks like before you run workflows on your own accounts.
 
